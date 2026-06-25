@@ -37,7 +37,7 @@ def convert_raven_to_biodcase(raven_folder_path, output_path):
     selections['dataset'] = station_name.lower()
     selections['annotator'] = 'unknown'
     selections_formatted = format_selections(selections)
-    selections_formatted.to_csv(output_path.joinpath(station_name.lower() + '.csv'))
+    selections_formatted.to_csv(output_path.joinpath(station_name.lower() + '.csv'), index=False)
     
 
 def format_selections(selections): 
