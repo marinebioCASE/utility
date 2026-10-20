@@ -34,7 +34,7 @@ def check_annotations_folder(folder_path, correct):
             selections.loc[bad_selections[bad_selections['is_precision_prob']].index, 'end_datetime'] = bad_selections['end_datetime_wav']
             selections['start_datetime'] = selections['start_datetime'].apply(lambda x: x.isoformat(timespec='microseconds'))
             selections['end_datetime'] = selections['end_datetime'].apply(lambda x: x.isoformat(timespec='microseconds'))
-            selections[selections_original.columns].to_csv(annotation_file)
+            selections[selections_original.columns].to_csv(annotation_file, index=False)
         total_bad_selections = pd.concat([total_bad_selections, bad_selections], ignore_index=True)
     if total_bad_selections is not None:
         total_bad_selections.to_csv(folder_path.joinpath('bad_annotations.csv'))
